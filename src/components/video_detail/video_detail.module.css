@@ -1,0 +1,34 @@
+.detail_on {
+  display: block;
+}
+.detail_off {
+  display: none;
+}
+
+.container {
+}
+.video {
+  width: 60vw;
+  height: 35vw;
+}
+.infoBox {
+  margin-top: 25px;
+  font-weight: 600;
+  opacity: 0.9;
+}
+.title {
+  font-size: 2vw;
+}
+.channelTitle {
+  text-align: right;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.publishedAt {
+  text-align: right;
+  border-bottom: 2px solid rgb(175, 175, 175);
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+.description {
+}

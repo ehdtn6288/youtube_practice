@@ -1,0 +1,19 @@
+.container {
+  max-width: 90vw;
+  margin: 0 auto;
+  margin-top: 90px;
+}
+
+.detail_on {
+  display: grid;
+  grid-template-columns: 60vw minmax(200px, 25vw);
+  justify-content: center;
+  justify-items: center;
+}
+.detail_off {
+  transition: all 0.5s linear;
+}
+
+/* .fa-youtube {
+  color: red;
+} */

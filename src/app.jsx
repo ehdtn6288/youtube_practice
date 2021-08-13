@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import "./reset.css";
 import styles from "./app.module.css";
 import VideoDetail from "./components/video_detail/video_detail";
@@ -18,11 +18,15 @@ function App({ youtube }) {
     // console.log(detailData);
     // console.log(detail);
   };
-  const search = (query) => {
-    youtube
-      .search(query) //
-      .then((result) => setVideos(result));
-  };
+  const search = useCallback(
+    (query) => {
+      console.log("search renderg");
+      youtube
+        .search(query) //
+        .then((result) => setVideos(result));
+    },
+    [youtube]
+  );
   useEffect(() => {
     youtube
       .popular() //

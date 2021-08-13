@@ -25,7 +25,7 @@ class Youtube {
       .then((result) =>
         result.items.map((item) => ({ ...item, id: item.id.videoId }))
       )
-      .then((items) => items)
+      .then((items) => items.filter((item) => item.id)) //channe의 경우 videoId가 undefined 로 표시되므로, videoId가 없는 item은 제거한다.
       .catch((error) => console.log("error", error));
   };
 }

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { memo, useRef } from "react";
 import styles from "./video_search.module.css";
 
 const VideoSearch = (props) => {
@@ -19,6 +19,7 @@ const VideoSearch = (props) => {
   //  const handleHome = ()=>{
 
   //  }
+  console.log("search_rendering");
 
   return (
     <header className={styles.header}>
@@ -35,4 +36,4 @@ const VideoSearch = (props) => {
   );
 };
 
-export default VideoSearch;
+export default memo(VideoSearch);

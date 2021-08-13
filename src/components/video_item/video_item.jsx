@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { memo, useRef } from "react";
 import styles from "./video_item.module.css";
 
 const VideoItem = ({
@@ -51,4 +51,4 @@ const VideoItem = ({
   );
 };
 
-export default VideoItem;
+export default memo(VideoItem);

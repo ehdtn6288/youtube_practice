@@ -12,11 +12,7 @@ const VideoList = ({ videos, getDetailData, isDetail }) => {
           <VideoItem
             video={video}
             key={
-              video.id.videoId
-                ? video.id.videoId
-                : video.id.channelId
-                ? video.id.channelId
-                : video.id
+              video.id
 
               // ? video.id.videoId
               // ? video.id.videoId && video.id.channelId

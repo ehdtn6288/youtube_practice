@@ -16,15 +16,15 @@ const VideoItem = ({
   //   }`;
   const videoRef = useRef();
 
-  const id = video.id.videoId
-    ? video.id.videoId
-    : video.id.channelId
-    ? video.id.channelId
-    : video.id;
+  // const id = video.id.videoId
+  //   ? video.id.videoId
+  //   : video.id.channelId
+  //   ? video.id.channelId
+  //   : video.id;
 
   const handleClick = () => {
     console.log(videoRef);
-    getDetailData(id);
+    getDetailData(video.id);
   };
 
   return (
@@ -32,7 +32,7 @@ const VideoItem = ({
       ref={videoRef}
       className={`${styles.container} ${
         isDetail ? styles.container_detail_on : ""
-      } ${id} `}
+      } ${video.id} `}
       onClick={handleClick}
       //   href={url}
       //   target="_blank"

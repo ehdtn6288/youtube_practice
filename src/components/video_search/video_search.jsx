@@ -8,25 +8,12 @@ const VideoSearch = (props) => {
     event.preventDefault();
     const text = inputRef.current.value;
     console.log(text);
-
     getSearchData(text);
+    props.removeDetail("");
   };
 
-  const getSearchData = (word) => {
-    const requestOptions = {
-      method: "GET",
-      redirect: "follow",
-    };
-    fetch(
-      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${word}&maxResults=25&key=AIzaSyBn6jDGPPhrgDtEsSKIMtzkEIEB2Ad-3i0`,
-      requestOptions
-    )
-      .then((response) => response.json())
-      .then((result) => {
-        console.log(result.items);
-        props.setSearchVideos(result.items);
-      })
-      .catch((error) => console.log("error", error));
+  const getSearchData = (query) => {
+    props.setSearchVideos(query);
   };
 
   //  const handleHome = ()=>{

@@ -13,6 +13,7 @@ const VideoDetail = ({
   return (
     <div className={styles.container}>
       <iframe
+        title={title}
         className={styles.video}
         src={`http://www.youtube.com/embed/${contentId}`}
         frameBorder="0"

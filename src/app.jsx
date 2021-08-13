@@ -5,7 +5,7 @@ import VideoDetail from "./components/video_detail/video_detail";
 import VideoList from "./components/video_list/video_list";
 import VideoSearch from "./components/video_search/video_search";
 
-function App() {
+function App({ youtube }) {
   const [videos, setVideos] = useState();
   const [detail, setDetail] = useState();
 
@@ -18,26 +18,34 @@ function App() {
     // console.log(detailData);
     // console.log(detail);
   };
-
+  const search = (query) => {
+    youtube
+      .search(query) //
+      .then((result) => setVideos(result));
+  };
   useEffect(() => {
-    const requestOptions = {
-      method: "GET",
-      redirect: "follow",
-    };
-
-    fetch(
-      "https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=20&key=AIzaSyBn6jDGPPhrgDtEsSKIMtzkEIEB2Ad-3i0",
-      requestOptions
-    )
-      .then((response) => response.json())
-      .then((result) => setVideos(result.items))
-      .catch((error) => console.log("error", error));
-    // console.log(videos);
-  }, []);
+    youtube
+      .popular() //
+      .then((result) => setVideos(result));
+    console.log("rendering");
+    // api.popular();
+    // const requestOptions = {
+    //   method: "GET",
+    //   redirect: "follow",
+    // };
+    // fetch(
+    //   "https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=20&key=AIzaSyBn6jDGPPhrgDtEsSKIMtzkEIEB2Ad-3i0",
+    //   requestOptions
+    // )
+    //   .then((response) => response.json())
+    //   .then((result) => setVideos(result.items))
+    //   .catch((error) => console.log("error", error));
+    // // console.log(videos);
+  }, [youtube]);
 
   return (
     <>
-      <VideoSearch setSearchVideos={setVideos} removeDetail={setDetail} />
+      <VideoSearch setSearchVideos={search} removeDetail={setDetail} />
       <div
         className={`${styles.container} ${
           detail ? `${styles.detail_on}` : `${styles.detail_off}`
